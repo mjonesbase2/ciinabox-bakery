@@ -34,14 +34,14 @@ eval $(aws cloudformation describe-stacks --stack-name ${CIINABOX_NAME} --query 
 if [[ "x${ECSInstanceProfile}" == "x" ]]; then
   ECSInstanceProfile="packer"
 fi
-
+echo "test"
 cat <<EOT > ${SCRIPT_PATH}/base_params.json
 {
   "region": "${Region}",
-  "vpc_id": "${VPCId}",
-  "subnet_id": "${ECSPrivateSubnetA}",
+  "vpc_id": "${VPC_ID}",
+  "subnet_id": "${SUBNET_ID}",
   "security_group": "${SecurityGroup}",
-  "packer_role": "${ECSRole}",
+  "packer_role": "${PACKER_ROLE}",
   "packer_instance_profile": "${ECSInstanceProfile}",
   "ami_users": "${AMI_USERS}"
 }
