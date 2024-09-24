@@ -25,6 +25,9 @@ SCRIPT_PATH="`( cd \"$SCRIPT_PATH\" && pwd )`"
 CIINABOX_NAME=${1}
 REGION=${2}
 AMI_USERS=${3}
+VPC_ID=${4}
+SUBNET_ID=${5}
+PACKER_ROLE=${6}
 
 eval $(aws cloudformation describe-stacks --stack-name ${CIINABOX_NAME} --query 'Stacks[*].Outputs[*].{Key:OutputKey, Value:OutputValue}' --region ${REGION} --output text | tr -s '\t' | tr '\t' '=')
 
