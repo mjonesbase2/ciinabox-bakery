@@ -38,7 +38,7 @@ try
 
   Write-Output "INFO: Cleaning up $GzipPath $TarPath"
   rm $GzipPath
-  rm $TarPath
+
 
   Write-Output "INFO: Time taken: $((Get-Date).Subtract($start_time))"
 }
